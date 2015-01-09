@@ -1,5 +1,9 @@
-# ArduinoHurricane
+# Arduino Hurricane
 
-Winter Term 2015
+Winter Term 2015 Arduino Projects
 
-Authors: Alexander Miller & Thomas Ring
+Alexander Miller & Thomas Ring
+
+# Projects
+## star_wars
+Play the main theme of Star Wars with the buzzer.
