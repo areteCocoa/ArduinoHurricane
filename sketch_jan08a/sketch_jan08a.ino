@@ -1,3 +1,8 @@
+// This program takes 3 different lights and lights them in 
+// ascending and descending order based on the time delay. 
+// They strobe back and forth
+
+
 // first idea
 float delayTime;
 float modifier;
