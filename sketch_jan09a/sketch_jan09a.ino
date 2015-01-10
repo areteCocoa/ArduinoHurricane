@@ -1,3 +1,8 @@
+// This program takes a light sensor and translates the 
+// value received via analog input and translates it to 
+// a buzzer. The switch cases at the bottom allow for more
+// "auto-tunning"
+
 void setup()
 {
   pinMode( 5, OUTPUT);
