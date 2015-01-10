@@ -1,3 +1,6 @@
+// This program plays the star was theme using a note scheme
+// found at http://goo.gl/sRX09j
+
 float octave;
 
 void setup()
