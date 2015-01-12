@@ -29,6 +29,18 @@ void setup()
   digitalWrite(5, HIGH);
   Serial.begin(9600);
   buttonState = false;
+  
+  playIntro();
+}
+
+void playIntro() {
+  tone(11, 392, 400);
+  delay(400);
+  tone(11, 494, 400);
+  delay(400);
+  tone(11, 294*2, 400);
+  delay(400);
+  tone(11, 392*2, 400);
 }
 
 // pin 6
@@ -92,8 +104,6 @@ float getWaitTime() {
 // 1 and 3.
 void loop()
 {
-  wait();
-  
   light1();
   wait();
   
@@ -102,8 +112,6 @@ void loop()
   
   light3();
   wait();
-  
-  playSong();
  
   light3();
   wait();
@@ -113,8 +121,6 @@ void loop()
   
   light1();
   wait(); 
-  
-  playSong(); 
 }
 
 void checkButtonState() {
@@ -124,6 +130,7 @@ void checkButtonState() {
     Serial.println("Was off, now on.");
     buttonState = !buttonState;
     hasDoneSomething = true;
+    playSong();
   } else if(input == LOW && hasDoneSomething == true) {
     hasDoneSomething = false;
   }
