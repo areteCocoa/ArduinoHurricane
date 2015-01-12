@@ -26,6 +26,7 @@ void setup()
   pinMode( 9, OUTPUT );
   pinMode( 6, OUTPUT);
   pinMode( 5, INPUT);
+  digitalWrite(5, HIGH);
   Serial.begin(9600);
   buttonState = false;
 }
@@ -33,7 +34,7 @@ void setup()
 // pin 6
 void light1()
 {
-  Serial.println("Light 1");
+  //Serial.println("Light 1");
   digitalWrite( 10 , HIGH );
   digitalWrite( 9, LOW);
   digitalWrite( 6, LOW);
@@ -42,7 +43,7 @@ void light1()
 // pin 9
 void light2()
 {
-  Serial.println("Light 2");
+  //Serial.println("Light 2");
   digitalWrite( 10 , LOW );
   digitalWrite( 9, HIGH);
   digitalWrite( 6, LOW);
@@ -51,7 +52,7 @@ void light2()
 // pin 10
 void light3()
 {
-  Serial.println("Light 3");
+  //Serial.println("Light 3");
   digitalWrite( 10 , LOW );
   digitalWrite( 9, LOW);
   digitalWrite( 6, HIGH);
@@ -71,7 +72,7 @@ void adjust()
 // pin 11
 void playSong()
 {
-  Serial.println("Played tune");
+  //Serial.println("Played tune");
   tone(11, 300, 175);
   delay(200);
 }
