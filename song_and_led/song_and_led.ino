@@ -17,38 +17,39 @@ void loop() {
   allOff();
   digitalWrite(LED_ONE, HIGH);
   printNext(LED_ONE);
-  delay(250);
+  delay(500);
   digitalWrite(LED_TWO, HIGH);
   printNext(LED_TWO);
-  delay(250);
+  delay(500);
   digitalWrite(LED_THREE, HIGH);
   printNext(LED_THREE);
-  delay(250);
+  delay(500);
   digitalWrite(LED_FOUR, HIGH);
   printNext(LED_FOUR);
-  delay(250);
+  delay(500);
+  playSong();
 }
 
 void printNext(int currentPin){
   char next;
   switch(currentPin) {
-    case LED_ONE:
+    case 6:
       next = '9';
       break;
-    case LED_TWO:
+    case 9:
       next = '10';
       break;
-    case LED_THREE:
+    case 10:
       next = '11';
       break;
-    case LED_FOUR:
+    case 11:
       next = '5';
       break;
   }
   
   
   Serial.print("The next pin is pin ");
-  Serial.print();
+  Serial.print(next);
   Serial.println(".");
 }
 
@@ -70,60 +71,60 @@ void playSong() {
   half -= 5;
   
   // pickup
-  tone(16, 587*octave, 145);
+  tone(BUZZER_PIN, 587*octave, 145);
   ;
   delay(triplet + 5);
-  tone(16, 587*octave, 145);
+  tone(BUZZER_PIN, 587*octave, 145);
   ;
   delay(triplet + 5);
-  tone(16, 587*octave, 145);
+  tone(BUZZER_PIN, 587*octave, 145);
   ;
   
   // measure 1
   delay(triplet + 5);
-  tone(16, 783*octave, half);
+  tone(BUZZER_PIN, 783*octave, half);
   ;
   delay(half + 5);
-  tone(16, 587*2*octave, half);
+  tone(BUZZER_PIN, 587*2*octave, half);
   ;
   delay(half + 5);
   
   // measure 2
-  tone(16, 523*2*octave, triplet);
+  tone(BUZZER_PIN, 523*2*octave, triplet);
   delay(triplet + 5);
-  tone(16, 987*octave, triplet);
+  tone(BUZZER_PIN, 987*octave, triplet);
   delay(triplet + 5);
-  tone(16, 880*octave, triplet);
+  tone(BUZZER_PIN, 880*octave, triplet);
   delay(triplet + 5);
   
-  tone(16, 783*2*octave, half);
+  tone(BUZZER_PIN, 783*2*octave, half);
   delay(half + 5);
   
-  tone(16, 587*2*octave, quarter);
+  tone(BUZZER_PIN, 587*2*octave, quarter);
   delay(quarter + 5);
   
   // measure 4
-  tone(16, 523*2*octave, triplet);
+  tone(BUZZER_PIN, 523*2*octave, triplet);
   delay(triplet + 5);
-  tone(16, 987*octave, triplet);
+  tone(BUZZER_PIN, 987*octave, triplet);
   delay(triplet + 5);
-  tone(16, 880*octave, triplet);
+  tone(BUZZER_PIN, 880*octave, triplet);
   delay(triplet + 5);
   
-  tone(16, 783*2*octave, half);
+  tone(BUZZER_PIN, 783*2*octave, half);
   delay(half + 5);
   
-  tone(16, 587*2*octave, quarter);
+  tone(BUZZER_PIN, 587*2*octave, quarter);
   delay(quarter + 5);
   
   // last measure
-  tone(16, 523*2*octave, triplet);
+  tone(BUZZER_PIN, 523*2*octave, triplet);
   delay(triplet + 5);
-  tone(16, 493*2*octave, triplet);
+  tone(BUZZER_PIN, 493*2*octave, triplet);
   delay(triplet + 5);
-  tone(16, 523*2*octave, triplet);
+  tone(BUZZER_PIN, 523*2*octave, triplet);
   delay(triplet + 5);
 
-  tone(16, 880*octave, half);
+  tone(BUZZER_PIN, 880*octave, half);
   delay(half + 5);  
 }
