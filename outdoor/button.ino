@@ -7,7 +7,7 @@ boolean lightsOn;
 
 /*
   Starts/stops the program
-*/
+
 void checkSwitchState() {
   int input = digitalRead(BUTTON_PIN);
   if(input == HIGH && hasDoneSomething == false)
@@ -33,8 +33,9 @@ void checkSwitchState() {
     checkSwitchState(); // if it's not on, it halts the program through recursion
   }
 }
+*/
 
-int changeButtonLevel(){
+int checkButtonLevel(){
     // how to make sure the button only activates the correct
     // functions throughout the entire program.
     // 0 = Both Lights and music on 
@@ -42,7 +43,7 @@ int changeButtonLevel(){
     // 2 = Music only off
     // 3 = Both off
     
-    switch(buttonLevel) {
+  switch(buttonLevel) {
       case 0:
         musicOn = false;      // Lights only
         lightsOn = true;
@@ -60,9 +61,13 @@ int changeButtonLevel(){
         lightsOn = true;
          return 0;
   }
-  return 0;
+  return 3; // default to nothing on
 }
 
-void checkButtonState() {
-  
+void buttonPressed() {
+  buttonLevel++;
+  if(buttonLevel>3 || buttonLevel<0) {
+    buttonLevel = 0;
+  }
+  checkButtonLevel();
 }
