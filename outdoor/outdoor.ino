@@ -3,19 +3,25 @@
 */
 
 // Pin constants
-int LIGHT    = 2;
-int BUZZER   = 5;
-int LOW_LED  = 6;
-int MID_LED  = 9;
-int HIGH_LED = 10;
-int TOGGLE   = 11;
+const unsigned int LIGHT    = 2;
+const unsigned int BUZZER   = 5;
+const unsigned int LOW_LED  = 6;
+const unsigned int MID_LED  = 9;
+const unsigned int HIGH_LED = 10;
+const unsigned int TOGGLE   = 11;
+
+// Constant for light
+const unsigned int darkThreshold = 50;
 
 // Time variables
-float millissecondsStartedOutside; // At what millis() did they go outside?
-float secondsAllowedOutside = 10;
+int millissecondsStartedOutside; // At what millis() did they go outside?
+unsigned int secondsAllowedOutside = 60;
+unsigned long lastChime;
+const float chimeInterval = 15; // 10 seconds instead of 15 minutes
 
 void setup() {
   millissecondsStartedOutside = -1;
+  lastChime = 0;
   
   pinMode(LOW_LED, OUTPUT );
   pinMode(MID_LED, OUTPUT );
@@ -36,6 +42,7 @@ void loop() {
       playOutside();
       millissecondsStartedOutside = millis();
     }
+    // LED Check
     if(secondsAllowedOutside/2 <= secondsOutside()) {
       if(secondsAllowedOutside <= secondsOutside()) {
         displayHigh();
@@ -45,12 +52,27 @@ void loop() {
     } else {
       displayLow();
     }
+    // song check
+    if(lastChime + chimeInterval < secondsOutside()) {
+      int chimes = secondsOutside() / chimeInterval;
+      int hours = 0;
+      if (chimes > 4) { // over an hour, count hours
+        while(chimes > 4) {
+          chimes -= 4;
+          hours++;
+        }
+      }
+      lastChime = secondsOutside();
+      playChime(chimes, hours);
+    }
   } else {
     if(millissecondsStartedOutside != -1) {
       Serial.print("User was just outside for ");
       printTimeOutside();
+      Serial.println();
       playInside();
       millissecondsStartedOutside = -1;
+      lastChime = 0;
       
       displayLow();
     }
@@ -58,7 +80,7 @@ void loop() {
 }
 
 boolean isOutside() {
-  if(analogRead(2) > 200) {
+  if(analogRead(2) > darkThreshold) {
     return true;
   }
   return false;
@@ -111,6 +133,65 @@ void displayHigh() {
   digitalWrite(HIGH_LED, HIGH);
 }
 
-void flashPin(int pin) {
-  
+/*
+  === Chime function ===
+  0 = first (15 mins)
+  1 = second (30 mins)
+  2 = third (45 mins)
+  3 = full + hours (60/0 mins)
+*/
+const int quarter = 500;
+void playChime(int interval, int hours) {
+  Serial.print("Playing chimes: ");
+  Serial.print(interval);
+  Serial.print(" ");
+  Serial.println(hours);
+  if(interval > 0) {
+    tone(BUZZER, 659, quarter);
+    delay(quarter);
+    tone(BUZZER, 523, quarter);
+    delay(quarter);
+    tone(BUZZER, 587, quarter);
+    delay(quarter);
+    tone(BUZZER, 392, quarter*2);
+    delay(quarter*2);
+  }
+  if(interval > 1) {
+    tone(BUZZER, 392, quarter);
+    delay(quarter);
+    tone(BUZZER, 587, quarter);
+    delay(quarter);
+    tone(BUZZER, 659, quarter);
+    delay(quarter);
+    tone(BUZZER, 523, quarter*2);
+    delay(quarter*2);
+  }
+  if(interval > 2) {
+    tone(BUZZER, 659, quarter);
+    delay(quarter);
+    tone(BUZZER, 587, quarter);
+    delay(quarter);
+    tone(BUZZER, 523, quarter);
+    delay(quarter);
+    tone(BUZZER, 392, quarter*2);
+    delay(quarter*2);
+  }
+  if (interval > 3) {
+    tone(BUZZER, 392, quarter);
+    delay(quarter);
+    tone(BUZZER, 587, quarter);
+    delay(quarter);
+    tone(BUZZER, 659, quarter);
+    delay(quarter);
+    tone(BUZZER, 523, quarter*2);
+    delay(quarter*3);
+    for(int count = 0; count < hours; count++){
+      chimeHours(hours);
+    }
+  }
+}
+
+void chimeHours(int hours) {
+  tone(BUZZER, 523, quarter/2);
+  delay((quarter/2)+50);
 }
