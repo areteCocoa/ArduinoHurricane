@@ -15,13 +15,13 @@ This program will perform the following using an arduino lillypad:
 
 Fritzing:
 
-![outdoor](outdoor/fritzing.jpg)
+![outdoor](outdoor/fritzing.png)
 
 # Smaller Projects
 ## star_wars
 Play the main theme of Star Wars with the buzzer.
 
-[YouTube Video]()
+[YouTube Video](https://www.youtube.com/watch?v=LRQTWj4wA-Y&feature=youtu.be)
 
 Fritzing:
 
@@ -30,29 +30,29 @@ Fritzing:
 ## ghost_rider
 Flash three LEDS back and forth in the style of the "Ghost Rider" car.
 
-[YouTube Video]()
+[YouTube Video](https://www.youtube.com/watch?v=rnAzOvHkX3g&feature=youtu.be)
 
 Fritzing:
 
 ![ghost_rider](ghost_rider/fritzing.jpg)
 
 ## ghost_rider_song
-Similar to above, but play a song at each end of the led array.
+Similar to above, but play a tone at each end of the led array.
 
-[YouTube Video]()
+[YouTube Video](https://www.youtube.com/watch?v=LfpORAia9TE&feature=youtu.be)
 
 Fritzing:
 
-![ghost_rider_song](ghost_rider_song/fritzing.jpg)
+![ghost_rider_song](ghost_rider_song/fritzing.png)
 
 ## ghost_rider_song_button
 Similar to above, but adds the ability to pause using a button in the middle of the array of lights flashing.
 
-[YouTube Video]()
+[YouTube Video](https://www.youtube.com/watch?v=hTgXR9eU0hs&feature=youtu.be)
 
 Fritzing:
 
-![ghost_rider_song_button](ghost_rider_song_button/fritzing.jpg)
+![ghost_rider_song_button](ghost_rider_song_button/fritzing.png)
 
 ## lights_button_and_led
 Two LEDS are controlled by two input sources.
@@ -65,7 +65,7 @@ The second is controlled by a light sensor with a threshold fo the reading and l
 
 Fritzing:
 
-![lights_button_and_led](lights_button_and_led/fritzing.jpg)
+![lights_button_and_led](lights_button_and_led/fritzing.png)
 
 ## song_and_led
 Sequentially light four lights followed by a tune (star wars).

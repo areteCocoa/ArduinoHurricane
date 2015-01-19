@@ -17,7 +17,7 @@ const unsigned int darkThreshold = 50;
 int millissecondsStartedOutside; // At what millis() did they go outside?
 unsigned int secondsAllowedOutside = 60;
 unsigned long lastChime;
-const float chimeInterval = 15; // 10 seconds instead of 15 minutes
+const float chimeInterval = 60; // how long inbetween chimes, in seconds
 
 void setup() {
   millissecondsStartedOutside = -1;
