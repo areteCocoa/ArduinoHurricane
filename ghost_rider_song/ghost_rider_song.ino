@@ -1,5 +1,5 @@
 // This program takes 3 different lights and lights them in 
-// ascending and descending order based on the time delay. 
+// ascending order based on the time delay. 
 // They strobe back and forth. Once the light "reaches" 
 // a side, they will play a song
 
