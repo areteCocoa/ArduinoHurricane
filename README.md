@@ -13,18 +13,46 @@ This program will perform the following using an arduino lillypad:
 - Three lights will display "safe", "mild", "Dangerous". These will display how damaging the sun is without sunscreen
 - One buzzer to give a musical song played at 15, 30, 45, and 60 minutes intervals.
 
+Fritzing:
+
+![outdoor](outdoor/fritzing.jpg)
+
 # Smaller Projects
 ## star_wars
 Play the main theme of Star Wars with the buzzer.
 
+[YouTube Video]()
+
+Fritzing:
+
+![star_wars](star_wars/fritzing.jpg)
+
 ## ghost_rider
 Flash three LEDS back and forth in the style of the "Ghost Rider" car.
+
+[YouTube Video]()
+
+Fritzing:
+
+![ghost_rider](ghost_rider/fritzing.jpg)
 
 ## ghost_rider_song
 Similar to above, but play a song at each end of the led array.
 
+[YouTube Video]()
+
+Fritzing:
+
+![ghost_rider_song](ghost_rider_song/fritzing.jpg)
+
 ## ghost_rider_song_button
 Similar to above, but adds the ability to pause using a button in the middle of the array of lights flashing.
+
+[YouTube Video]()
+
+Fritzing:
+
+![ghost_rider_song_button](ghost_rider_song_button/fritzing.jpg)
 
 ## lights_button_and_led
 Two LEDS are controlled by two input sources.
@@ -33,9 +61,17 @@ The first is controlled by a simple button and is toggled on when the button is 
 
 The second is controlled by a light sensor with a threshold fo the reading and lights up when it gets too dark.
 
-## song_and_led
-Sequentially light four lights followed by a tune (star wars).
+[YouTube Video]()
 
 Fritzing:
 
-![song_and_led_fritzing.jpg](https://raw.github.com/areteCocoa/ArduinoHurricane/tree/master/song_and_led/song_and_led_fritzing.jpg)
+![lights_button_and_led](lights_button_and_led/fritzing.jpg)
+
+## song_and_led
+Sequentially light four lights followed by a tune (star wars).
+
+[YouTube Video](https://www.youtube.com/watch?v=C5iyWgtUBoo&feature=youtu.be)
+
+Fritzing:
+
+![song_and_led_fritzing.jpg](song_and_led/fritzing.jpg)
