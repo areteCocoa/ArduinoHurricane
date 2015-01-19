@@ -15,6 +15,7 @@ void setup() {
 
 void loop() {
   allOff();
+  delay(500);
   digitalWrite(LED_ONE, HIGH);
   printNext(LED_ONE);
   delay(500);
